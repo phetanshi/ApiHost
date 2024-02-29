@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: apihost-job
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: apihost-job-container
+        image: padmasekhar/apihost:latest
+        imagePullPolicy: Always
+      restartPolicy: Never

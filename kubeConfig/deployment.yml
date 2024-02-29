@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apihost-depl
+spec:
+  selector:
+    matchLabels:
+      app: apihost
+  template:
+    metadata:
+      labels:
+        app: apihost
+    spec:
+      containers:
+      - name: apihost-container
+        image: padmasekhar/apihost:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - name: web
+            containerPort: 80
+            protocol: TCP

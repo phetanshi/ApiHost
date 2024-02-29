@@ -36,7 +36,7 @@ namespace ApiHost
         {
             try
             {
-                var config = KubernetesClientConfiguration.BuildConfigFromConfigFile();
+                var config = KubernetesClientConfiguration.BuildConfigFromConfigFile("./kubedep/config");
                 var client = new Kubernetes(config);
                 //var namespaces = client.CoreV1.ListNamespace();
                 var timeStamp = DateTime.Now.ToString("MMddHHmmss");

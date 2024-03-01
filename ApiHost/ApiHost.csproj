@@ -14,4 +14,16 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="kube\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Update="kube\config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

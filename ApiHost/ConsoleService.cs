@@ -36,7 +36,7 @@ namespace ApiHost
         {
             try
             {
-                var config = KubernetesClientConfiguration.BuildConfigFromConfigFile("./kubedep/config");
+                var config = KubernetesClientConfiguration.BuildConfigFromConfigFile("./kube/config");
                 var client = new Kubernetes(config);
                 //var namespaces = client.CoreV1.ListNamespace();
                 var timeStamp = DateTime.Now.ToString("MMddHHmmss");
@@ -62,7 +62,7 @@ namespace ApiHost
                 template.Spec.Containers.Add(container);
 
                 var jobSpec = new V1JobSpec();
-                jobSpec.TtlSecondsAfterFinished = 0;
+                jobSpec.TtlSecondsAfterFinished = 50;
                 jobSpec.Template = template;
 
 
